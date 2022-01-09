@@ -131,7 +131,7 @@ export default vm
       <template v-if="!!details">
         <!-- <u-swiper :list="images" :height="642" mode="number" indicator-pos="bottomRight"></u-swiper> -->
         <view class="video-content w-full">
-          <video :src="`http://zhschool.qixiuu.com${videoUrl.value}`" id="myVideo" class="w-full video">
+          <video :src="`http://zhschool.qixiuu.com${videoUrl.value}`" id="myVideo" class="w-full video" autoplay>
             <!-- <cover-view class="w-full video-scroll-cover" :style="`height: ${scrollTop}px;`"></cover-view> -->
             <cover-image class="cover-radius lt" src="@/static/corner-lt.png"></cover-image>
             <cover-view class="cover-radius-view-hor lt"></cover-view>

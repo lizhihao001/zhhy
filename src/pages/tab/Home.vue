@@ -179,7 +179,7 @@ const vm = defineComponent({
           icon: require('@/static/train.png'),
           text: '培训科目',
           onClick() {
-            uni.reLaunch({
+            uni.navigateTo({
               url: '/pages/train/list',
             })
           },

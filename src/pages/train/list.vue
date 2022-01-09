@@ -130,7 +130,7 @@ export default vm
           </u-row>
         </Card>
       </view>
-      <TrainTypeList @change="handleTypeSelected"> </TrainTypeList>
+      <TrainTypeList @change="handleTypeSelected" :isBack="true"> </TrainTypeList>
     </template>
     <ViewStatus :loading="!trainList || loading" :empty="(trainList || []).length === 0" v-else>
       <template v-if="!!trainList">

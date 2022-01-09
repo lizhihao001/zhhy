@@ -8,6 +8,12 @@ import { useLocalStorage } from '@/hooks'
 
 const vm = defineComponent({
   components: { Card, Icon },
+  props:{
+    isBack:{
+      type:Boolean,
+      default:false
+    },
+  },
   setup() {
     const showTime = ref(false)
     const showTypes = ref(false)
@@ -121,7 +127,7 @@ export default vm
 
 <template>
   <view style="width:100%">
-    <u-navbar :title-size="38" title="报名"  :is-back="false" style="height:0"></u-navbar>
+    <u-navbar :title-size="38" title="报名"  :is-back="isBack" style="height:0"></u-navbar>
     <!-- <view class="top">
       <u-dropdown inactive-color="#666666">
         <u-dropdown-item v-model="value1" title="培训分类" :options="options1" ></u-dropdown-item>
