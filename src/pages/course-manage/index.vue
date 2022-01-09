@@ -69,10 +69,10 @@ export default vm
               <text class="item-name">培训地址</text>
               <text class="item-value">{{ item.plan_address }}</text>
             </view>
-            <view class="info-item">
+            <!-- <view class="info-item">
               <text class="item-name">住宿地址</text>
               <text class="item-value">{{ item.drom_detail }}</text>
-            </view>
+            </view> -->
           </view>
         </Card>
       </view>

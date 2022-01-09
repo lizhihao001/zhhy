@@ -1,60 +1,48 @@
 <script>
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent ,ref,onMounted} from '@vue/composition-api'
+import { useService } from '@/hooks'
+import services from '@/services'
+import dayjs from 'dayjs'
 
 export default defineComponent({
   setup() {
+
+    const queryType = ref(0)
+
+    const courseTableService = useService(services['获取课程表'], {
+      time: '',
+      time_type: queryType,
+    })
+    const dataSource = courseTableService.data
+    console.log(dataSource);
+    const list = ref(dataSource.value)
+ 
+
+     onMounted(async () => {
+      await courseTableService.fetch()  
+      console.log(dataSource.value) 
+
+      
+    })
+
+     
     
     const toCourseDetails = (item) => {
       uni.navigateTo({
         url: `/pages/course-manage/curriculum?id=${item.id}`,
       })
     }
+
+
     return {
       value: '',
       type: 'text',
       toCourseDetails,
-      border: true,
-      itemList: [
-        {
-          open: true,
-          disabled: true,
-          title: '2021年12月30日',
-        },
-      ],
-      aList: [
-        {
-          name: '0',
-          time: '08:30-10:30',
-          course: '轮机英语',
-          address: '上课地址 : 教学楼3号楼201教室教学楼3号楼201教室教学楼3号楼201教室教学楼3号楼201教室',
-        },
-        {
-          name: '1',
-          time: '10:15-12:00',
-          course: '船舶辅机',
-          address: '上课地址b',
-        },
-        {
-          name: '2',
-          time: '15:15-19:00',
-          course: '船舶辅机',
-          address: '上课地址c',
-        },
-      ],
-      collapseList: [
-        {
-          name: '12',
-          title:'2021年12月30日'
-        },
-        {
-          name: '34',
-          title:'2021年12月31日'
-        },
-        {
-          name: '34',
-          title:'2021年10月31日'
-        },
-      ],
+      border: true, 
+      collapseList: dataSource,
+      format(date, formatType) {
+        return dayjs(date).format(formatType)
+      },
     }
   },
 })
@@ -78,16 +66,17 @@ export default defineComponent({
       <view class="collapse-left">
         <image class="collapse-img" src="@/static/icons/time.png">
         <!-- <u-line class="collapse-line" length="560rpx" color="#BEC2CB" direction="col" margin="0rpx"  border-style="dashed" :hair-line="false"></u-line> -->
-      </view>
-      <u-collapse-item :title="collapse.title" v-for="(item, index) in itemList" :key="index">
-        <view v-for="(a, index) in aList" :key="index">
+      </view>  
+      <u-collapse-item :title="format(collapse[0].date, 'YYYY年MM月DD日')"  :key="index">
+        
+        <view v-for="(a, i) in collapse" :key="i">
           <view class="item">
-            <text class="item-tit">{{a.name}}</text>
-            <text class="item-time">{{a.time}}</text>
-            <view class="item-course">{{a.course}}</view>
+            <text v-if="a.course_type_text" class="item-tit">{{a.course_type_text}}</text> 
+            <text class="item-time">{{a.time_text}}</text>
+            <view class="item-course">{{a.name}}</view>
           </view>
           <view class="address">
-            {{a.address}}
+            上课地址:{{a.address}}
           </view>
           <u-line class="collapse-line" length="100%" color="#BEC2CB" direction="col" margin="0rpx"  border-style="dashed" :hair-line="false"></u-line>
         </view>
