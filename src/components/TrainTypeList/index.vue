@@ -13,7 +13,9 @@ const vm = defineComponent({
     const showTypes = ref(false)
     const showTypeIdx = ref(0)
     const typeList = useLocalStorage('typeList', [])
-
+    const selectedType = ref(uni.getStorageSync('train-list-type') || null)
+    uni.removeStorageSync('train-list-type')
+    const selectedTime = ref(null)
     onMounted(async () => {
       const res = await services['获取培训计划分类']()
 
@@ -37,6 +39,8 @@ const vm = defineComponent({
       showTime,
       showTypes,
       showTypeIdx,
+       selectedType,
+      selectedTime,
       typeList,
       value1: 1,
       value2: 2,
@@ -106,6 +110,7 @@ const vm = defineComponent({
   },
   methods: {
     isFlodCard(idx){ 
+      console.log('idx===',idx)
       this.showTypeIdx = this.showTypeIdx === idx ? new Date().getTime():idx  
     }
   },
@@ -115,8 +120,8 @@ export default vm
 </script>
 
 <template>
-  <view class="">
-    <u-navbar :title-size="38" title="报名" :height="50" :is-back="false"></u-navbar>
+  <view style="width:100%">
+    <u-navbar :title-size="38" title="报名"  :is-back="false" style="height:0"></u-navbar>
     <!-- <view class="top">
       <u-dropdown inactive-color="#666666">
         <u-dropdown-item v-model="value1" title="培训分类" :options="options1" ></u-dropdown-item>
@@ -164,12 +169,12 @@ export default vm
       <template v-if="typeList.length > 0">
         <template v-for="(type, idx) in typeList">
           <Card class="type-info-card" :class="{ active: showTypeIdx === idx }" :key="`card${idx}`" :shadow="false">
-            <u-row @click="isFlodCard(idx)">
+            <u-row >
               <u-row class="type-info">
                 <image :src="getImageSrc(type, showTypeIdx === idx)" class="type-icon" mode="aspectFit"></image>
                 {{ type.name }}
               </u-row>
-              <view class="fold-button">
+              <view class="fold-button" @click="isFlodCard(idx)">
                 <Icon :name="showTypeIdx === idx ? 'arrow-up' : 'arrow-down'" :size="36" />
               </view>
             </u-row>
@@ -199,7 +204,7 @@ export default vm
 // }
 .filter-bar {
   position: fixed;
-  top: calc(50px + var(--status-bar-height));
+  top: calc(44px + var(--status-bar-height));
   z-index: 2;
   width: 750rpx;
   height: 80rpx;

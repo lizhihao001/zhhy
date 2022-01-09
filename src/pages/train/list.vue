@@ -93,7 +93,7 @@ export default vm
 
 <template>
   <view class="content">
-    <u-navbar :title-size="38" title="全部培训" :height="50"></u-navbar>
+    <u-navbar :title-size="38" title="全部培训"></u-navbar>
     <u-row class="filter-bar">
       <view @click="showTypes = !showTypes" class="select-tag">
         <text v-if="!!selectedType" class="select-tag-item selected">
