@@ -5,13 +5,15 @@ import RefundTips from '@/components/RefundTips'
 
 const orderStatusMap = {
   1: '待支付',
-  1: '已支付',
+  2: '已支付',
   3: '申请退款中',
   4: '退款中',
   5: '申请失败',
   6: '退款完成',
   7: '已关闭',
   8: '已取消',
+  9: '部分支付',
+  10: '交易失败'
 }
 
 const vm = defineComponent({
@@ -46,7 +48,7 @@ export default vm
 <template>
   <view class="warpper">
     
-    <Card class="car" v-if="orderStatus === '已报名'">
+    <Card class="car" v-if="orderStatus === '已支付'">
       <view class="status-info">
         <view class="status-label">已支付</view>
         <view class="status-tips">恭喜您成功报名</view>

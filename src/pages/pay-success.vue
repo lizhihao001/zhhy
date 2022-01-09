@@ -8,8 +8,18 @@ import Timeline from '@/components/Timeline'
 
 export default defineComponent({
   components: { Icon, Card, SignUpInforCard, Timeline },
-  setup() {
+ onLoad: function (option) {
+    
 
+    this.option.type = option.type;
+    this.modalText = this.option.type ? '您的证书办理已受理，我们将尽快完成办理，如有疑问，请联系客服咨询' : '您已成功报名，考试需要您到海事一网通办平台注册'
+  },
+  
+  setup() {
+     const option = reactive({
+      type: null,
+    })
+    const modalText = ref('');
     function navigateTo(url) {
       uni.navigateTo({
         url: `/pages/${url}`,
@@ -26,6 +36,7 @@ export default defineComponent({
 
 
     return {
+      modalText,
       showDialog,
       backToIndex() {
         uni.reLaunch({ url: '/pages/tab/index' })
@@ -39,7 +50,8 @@ export default defineComponent({
         console.log('cancel')
         navigateTo(`webview?title=海事一网通办&src=${encodeURIComponent('https://zwfw.msa.gov.cn/')}`)
         showDialog.value = false
-      }
+      },
+      option
     }
   },
 })
@@ -64,7 +76,7 @@ export default defineComponent({
 
     <u-modal
       v-model="showDialog"
-      content="您已成功报名，考试需要您到海事一网通办平台注册"
+      :content="modalText"
       confirm-text="我已完成注册"
       cancel-text="前往注册账号"
       :show-cancel-button="true"

@@ -4,14 +4,16 @@ import Card from '@/components/Card'
 import Price from '@/components/Price'
 
 const orderStatusMap = {
-  0: '待支付',
-  1: '已报名',
+ 1: '待支付',
+  2: '已支付',
   3: '申请退款中',
   4: '退款中',
   5: '申请失败',
   6: '退款完成',
   7: '已关闭',
   8: '已取消',
+  9: '部分支付',
+  10: '交易失败'
 }
 
 const vm = defineComponent({
@@ -80,11 +82,11 @@ export default vm
           <!-- <Price :value="details.total_price" /> -->
           <text class="number">x{{ details.order_detail.length }}</text>
         </view>
-        <view class="refund-btn" v-if="orderStatus === '已报名'" @click="showRefundPopup = true">退款</view>
+        <view class="refund-btn" v-if="orderStatus === '已支付'" @click="showRefundPopup = true">退款</view>
       </view>
       <view class="course-name" v-for="(item, idx) in details.project_name" :key="idx">{{ item }}</view>
       <!-- <view class="course-name">精通救生艇筏和救助艇培训</view> -->
-      <template v-if="['已报名', '待支付'].includes(orderStatus)">
+      <template v-if="['已支付', '待支付'].includes(orderStatus)">
         <view class="info">
           <!-- "train_price": "300.00",  培训费
               "exam_price": "0.00", 考试费

@@ -121,10 +121,10 @@ export default vm
               <text class="item-name">培训地址</text>
               <text class="item-value">{{ details.plan_address }}</text>
             </view>
-            <view class="info-item">
+            <!-- <view class="info-item">
               <text class="item-name">住宿地址</text>
               <text class="item-value">{{ details.drom_detail }}</text>
-            </view>
+            </view> -->
           </view>
           <view class="action-btn">
             <view class="navigation btn" @click="mapTo">

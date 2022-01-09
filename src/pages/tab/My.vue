@@ -1,7 +1,8 @@
 <script>
-import { defineComponent, reactive, computed, onMounted, onActivated } from '@vue/composition-api'
+import { defineComponent, reactive, computed, onMounted, onActivated ,ref} from '@vue/composition-api'
 import { useMouse } from '@vueuse/core'
-import { useStore } from '@/hooks'
+import { useStore ,useService} from '@/hooks'  
+import services from '@/services'
 import get from 'lodash/get'
 
 const vm = defineComponent({
@@ -13,9 +14,22 @@ const vm = defineComponent({
     const store = useStore()
     const userInfo = computed(() => store.state?.user?.userInfo ?? {})
     const userProfile = computed(() => store.state?.user?.profile ?? {})
+    let time = ref('')
     const state = reactive({
       count: 0,
     })
+
+    const vipService = useService(services['会员中心'], { }) 
+
+    const loadData = async () => {
+      await vipService.fetch({ 
+      }) 
+      time.value = vipService.data.value.order && vipService.data.value.order.close_time*1000
+      console.log(time.value,123);
+      // time.value = new Date('2022-01-10').getTime()
+       
+    }
+    
 
     const add = () => {
       state.count++
@@ -27,9 +41,13 @@ const vm = defineComponent({
       })
     }
 
+    onMounted(loadData)
+    onActivated(loadData)
+
     onMounted(() => store.dispatch('user/fetchProfile'))
     onActivated(() => store.dispatch('user/fetchProfile'))
-
+    console.log(time.value-new Date().getTime());
+    
     return {
       get,
       state,
@@ -38,6 +56,7 @@ const vm = defineComponent({
       store,
       userInfo,
       userProfile,
+      closeTime:time, //86400 -new Date().getTime()
       title: '我的',
       navigateTo(url) {
         uni.navigateTo({
@@ -70,12 +89,12 @@ export default vm
       <text class="name">{{ get($store, 'state.user.profile.name', '--') || '--' }}</text>
       <text class="title-name">{{ get($store, 'state.user.profile.job_name', '--') || get($store, 'state.user.profile.mobile', '--')  }}</text>
     </view>
-    <view class="payment">
+    <view class="payment" v-if="closeTime>new Date().getTime()">
       <view class="payment-left">
         <image class="left-img" src="../../static/payment.png" mode=""></image>
-        <view class="main">
-          <text class="stay">待付款</text>
-          <text class="time">剩余时间 01:30:00</text>
+        <view class="main" >
+          <text class="stay">待付款</text> 
+          <text class="time">剩余时间 <u-count-down style="padding-left:8px;"    :timestamp="closeTime-new Date().getTime()"  class="time" ></u-count-down></text>
         </view>
       </view>
       <view class="payment-right">

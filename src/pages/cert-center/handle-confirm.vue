@@ -99,7 +99,7 @@ const vm = defineComponent({
           }[payType.value],
           orderInfo: res?.data,
           success(res) {
-            console.log(res)
+            console.log('pay zs res',res)
             uni.showToast({
               icon: 'success',
               title: '支付成功！',
@@ -108,7 +108,7 @@ const vm = defineComponent({
             })
 
             setTimeout(() => {
-              navigateTo('pay-success')
+              navigateTo('pay-success?type=1')
             }, 1500)
           },
           fail(err) {

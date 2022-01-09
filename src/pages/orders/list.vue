@@ -12,14 +12,16 @@ import { useService } from '@/hooks'
 import services from '@/services'
 
 const orderStatusMap = {
-  0: '待支付',
-  1: '已报名',
+  1: '待支付',
+  2: '已支付',
   3: '申请退款中',
   4: '退款中',
   5: '申请失败',
   6: '退款完成',
   7: '已关闭',
   8: '已取消',
+  9: '部分支付',
+  10: '交易失败'
 }
 
 const vm = defineComponent({
@@ -45,8 +47,8 @@ const vm = defineComponent({
       const status =
         [
           '', // 全部
-          '0', // 待支付
-          '1', // 已支付
+          '1', // 待支付
+          '2', // 已支付
           '4', // 退款
         ][currentTab.value] || ''
 
