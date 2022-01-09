@@ -18,7 +18,7 @@ const vm = defineComponent({
   components: { Card, Timeline, Icon, Price, SignUpInforBar, SignUpInforCard, TrainTypeList, ViewStatus },
   setup() {
     const showTime = ref(false)
-    const showTypes = ref(false)
+    const showTypes = ref(true)
     const selectedType = ref(uni.getStorageSync('train-list-type') || null)
     uni.removeStorageSync('train-list-type')
     const selectedTime = ref(null)

@@ -180,7 +180,7 @@ const vm = defineComponent({
           text: '培训科目',
           onClick() {
             uni.reLaunch({
-              url: '/pages/tab/index?tabIdx=1',
+              url: '/pages/train/list',
             })
           },
         },
