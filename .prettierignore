@@ -1,0 +1,8 @@
+**/*.svg
+**/*.ejs
+**/*.html
+.hbuilderx
+.dist
+node_modules
+android.keystore
+package.json

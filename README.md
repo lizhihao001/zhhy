@@ -1,2 +1,1 @@
-# zhhy
-智慧海院
+# 2021-smart-school

@@ -1,0 +1,461 @@
+{
+    "pages" : [
+        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        {
+            "path" : "pages/tab/index",
+            "style" : {
+                "navigationBarTitleText" : "智慧海院",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/tab/Coupons",
+            "style" : {
+                "navigationBarTitleText" : "优惠券",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/recommend/list",
+            "style" : {
+                "navigationBarTitleText" : "推荐就业",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/recommend/details",
+            "style" : {
+                "navigationBarTitleText" : "就业详情",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/map",
+            "style" : {
+                "navigationBarTitleText" : "地图",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/webview",
+            "style" : {
+                "navigationBarTitleText" : "智慧海院",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/train/list",
+            "style" : {
+                "navigationBarTitleText" : "全部培训",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/train/details-progress",
+            "style" : {
+                "navigationBarTitleText" : "详情进度",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/train/details",
+            "style" : {
+                "navigationBarTitleText" : "详情",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/train/shared-details",
+            "style" : {
+                "navigationBarTitleText" : "详情",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/train/share",
+            "style" : {
+                "navigationBarTitleText" : "分享图",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/sign-up/form",
+            "style" : {
+                "navigationBarTitleText" : "在线报名",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/sign-up/submit",
+            "style" : {
+                "navigationBarTitleText" : "提交订单",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/learn-online/list",
+            "style" : {
+                "navigationBarTitleText" : "在线学习",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/learn-online/details",
+            "style" : {
+                "navigationBarTitleText" : "学习详情",
+                "navigationBarBackgroundColor" : "#ffffff"
+            }
+        },
+        {
+            "path" : "pages/terms",
+            "style" : {
+                "navigationBarTitleText" : "用户协议",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/train-terms",
+            "style" : {
+                "navigationBarTitleText" : "调取办证协议",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/webview",
+            "style" : {
+                "navigationBarTitleText" : "",
+                "navigationBarBackgroundColor" : "#ffffff"
+            }
+        },
+        {
+            "path" : "pages/exam-query/form",
+            "style" : {
+                "navigationBarTitleText" : "考试查询",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/exam-query/result",
+            "style" : {
+                "navigationBarTitleText" : "查询结果",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/search",
+            "style" : {
+                "navigationBarTitleText" : "搜索",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/about-school",
+            "style" : {
+                "navigationBarTitleText" : "学校介绍",
+                "navigationStyle" : "custom"
+            }
+        },
+        // 消息中心
+        {
+            "path" : "pages/message/index",
+            "style" : {
+                "navigationBarTitleText" : "我的消息",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/message/notice",
+            "style" : {
+                "navigationBarTitleText" : "通知",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/message/message",
+            "style" : {
+                "navigationBarTitleText" : "消息",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/message/details",
+            "style" : {
+                "navigationBarTitleText" : "详情",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/news-list/index",
+            "style" : {
+                "navigationBarTitleText" : "动态列表",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/news-list/details",
+            "style" : {
+                "navigationBarTitleText" : "详情",
+                "navigationStyle" : "custom"
+            }
+        },
+        // 证书中心
+        {
+            "path" : "pages/cert-center/list",
+            "style" : {
+                "navigationBarTitleText" : "证书中心",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/cert-center/type-details",
+            "style" : {
+                "navigationBarTitleText" : "类型详情",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/cert-center/type-details",
+            "style" : {
+                "navigationBarTitleText" : "类型详情",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/cert-center/processing-details",
+            "style" : {
+                "navigationBarTitleText" : "进度详情",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/cert-center/not-handle-details",
+            "style" : {
+                "navigationBarTitleText" : "待办详情",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/cert-center/handle",
+            "style" : {
+                "navigationBarTitleText" : "证书办理",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/cert-center/handle-confirm",
+            "style" : {
+                "navigationBarTitleText" : "确认订单",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/cert-center/add-address",
+            "style" : {
+                "navigationBarTitleText" : "收件人信息",
+                "navigationStyle" : "custom"
+            }
+        },
+        // 课程管理
+        {
+            "path" : "pages/course-manage/index",
+            "style" : {
+                "navigationBarTitleText" : "课程管理",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/course-manage/curriculum",
+            "style" : {
+                "navigationBarTitleText" : "我的课程表",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/course-manage/course-details",
+            "style" : {
+                "navigationBarTitleText" : "详情",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/course-manage/textbook",
+            "style" : {
+                "navigationBarTitleText" : "我的教材",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/course-manage/textbook-details",
+            "style" : {
+                "navigationBarTitleText" : "教材详情",
+                "navigationStyle" : "custom"
+            }
+        },
+        // 我的订单
+        {
+            "path" : "pages/orders/list",
+            "style" : {
+                "navigationBarTitleText" : "我的订单",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/orders/order-detail",
+            "style" : {
+                "navigationBarTitleText" : "订单详情",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/orders/refund-detail",
+            "style" : {
+                "navigationBarTitleText" : "退款详情",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/orders/refund-apply",
+            "style" : {
+                "navigationBarTitleText" : "退款申请",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/auth/login-type",
+            "style" : {
+                "navigationBarTitleText" : "登录",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/auth/pwd-login",
+            "style" : {
+                "navigationBarTitleText" : "登录",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/auth/reset-pwd",
+            "style" : {
+                "navigationBarTitleText" : "重置密码",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/auth/register-account",
+            "style" : {
+                "navigationBarTitleText" : "注册",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/auth/label-select",
+            "style" : {
+                "navigationBarTitleText" : "选择标签",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/auth/sms-login",
+            "style" : {
+                "navigationBarTitleText" : "登录",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/auth/bind-account",
+            "style" : {
+                "navigationBarTitleText" : "绑定账号",
+                "navigationStyle" : "custom"
+            }
+        },
+        // 设置
+        {
+            "path" : "pages/set/index",
+            "style" : {
+                "navigationBarTitleText" : "设置",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/set/set-base-info",
+            "style" : {
+                "navigationBarTitleText" : "设置",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/set/set-address",
+            "style" : {
+                "navigationBarTitleText" : "我的地址",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/set/set-mobile",
+            "style" : {
+                "navigationBarTitleText" : "修改手机号",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/set/set-password",
+            "style" : {
+                "navigationBarTitleText" : "修改密码",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/set/about-us",
+            "style" : {
+                "navigationBarTitleText" : "关于我们",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/collection-list",
+            "style" : {
+                "navigationBarTitleText" : "我的收藏",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/pay-success",
+            "style" : {
+                "navigationBarTitleText" : "支付成功",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/share-download",
+            "style" : {
+                "navigationBarTitleText" : "下载智慧海院",
+                "navigationStyle" : "custom"
+            }
+        },
+        {
+            "path" : "pages/orders/component/order-info",
+            "style" : {}
+        }
+    ],
+    "globalStyle" : {
+        "navigationBarTextStyle" : "black",
+        "navigationBarTitleText" : "uni-app",
+        "navigationBarBackgroundColor" : "#ffffff",
+        "backgroundColor" : "#F8F8F8"
+    },
+    "easycom" : {
+        "^u-(.*)" : "uview-ui/components/u-$1/u-$1.vue"
+    },
+    "condition" : {
+        //模式配置，仅开发期间生效
+        "current" : 0, //当前激活的模式(list 的索引项)
+        "list" : [
+            {
+                "name" : "", //模式名称
+                "path" : "", //启动页面，必选
+                "query" : "" //启动参数，在页面的onLoad函数里面得到
+            }
+        ]
+    }
+}
