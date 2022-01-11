@@ -18,7 +18,7 @@ const vm = defineComponent({
     const state = reactive({
       count: 0,
     })
-
+	const orderNo = ref('')
     const vipService = useService(services['会员中心'], { }) 
 
     const loadData = async () => {
@@ -26,7 +26,9 @@ const vm = defineComponent({
       }) 
       time.value = vipService.data.value.order && vipService.data.value.order.close_time*1000
       console.log(time.value,123);
+	  console.log('vipService.data.value.order.order_id',vipService.data.value.order.order_id)
       // time.value = new Date('2022-01-10').getTime()
+	  orderNo.value = vipService.data.value.order && vipService.data.value.order.order_id
        
     }
     
@@ -56,6 +58,7 @@ const vm = defineComponent({
       store,
       userInfo,
       userProfile,
+	  orderNo,
       closeTime:time, //86400 -new Date().getTime()
       title: '我的',
       navigateTo(url) {
@@ -66,6 +69,12 @@ const vm = defineComponent({
       notReady() {
         uni.showToast({ icon: 'none', title: '未就绪' })
       },
+	  toPay(){
+		  console.log('orderno',orderNo)
+		  uni.navigateTo({
+		  	url:'/pages/orders/order-detail?id='+orderNo.value
+		  })
+	  },
     }
   },
 })
@@ -89,7 +98,7 @@ export default vm
       <text class="name">{{ get($store, 'state.user.profile.name', '--') || '--' }}</text>
       <text class="title-name">{{ get($store, 'state.user.profile.job_name', '--') || get($store, 'state.user.profile.mobile', '--')  }}</text>
     </view>
-    <view class="payment" v-if="closeTime>new Date().getTime()">
+    <view class="payment">
       <view class="payment-left">
         <image class="left-img" src="../../static/payment.png" mode=""></image>
         <view class="main" >
@@ -97,7 +106,7 @@ export default vm
           <text class="time">剩余时间 <u-count-down style="padding-left:8px;"    :timestamp="closeTime-new Date().getTime()"  class="time" ></u-count-down></text>
         </view>
       </view>
-      <view class="payment-right">
+      <view class="payment-right" @click="toPay">
         <image class="payment-right-img" src="../../static/quzhifu.png" mode=""></image>
         <text class="payment-right-zf">去支付</text>
       </view>
